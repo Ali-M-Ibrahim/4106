@@ -96,5 +96,13 @@ Route::apiResource('myapi',ApiController::class);
 Route::get('invoke',InvokableController::class);
 Route::resource('resource',ResourceController::class)->only(['index','create']);
 Route::resource('resource2',ResourceController::class)->except(['index']);
-
 Route::post('first-post',[FirstController::class,'post']);
+
+
+
+
+
+
+
+
+
