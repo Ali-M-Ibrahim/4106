@@ -269,9 +269,19 @@ class DataController extends Controller
 
         //select sum(id) from customers
         $sumId = Customer::sum("id");
-        return $sumId;
+        return response()->json(["max"=>$maxId, "min"=>$minId]);
 
+    }
 
+    public function join(){
+        //select * from customers join credentials
+        // on  customers.id = credentials.customer_id
+        // where credentials.email like "%as%"
+        $customer = Customer::
+        join("credentials","customers.id","credentials.customer_id")
+            ->where("credentials.email","like", "%as%")
+            ->get();
+        return $customer;
     }
 
 }

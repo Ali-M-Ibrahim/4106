@@ -135,6 +135,9 @@ Route::get("getCustomersOrdered",[DataController::class,"getCustomersOrdered"]);
 Route::get("mix",[DataController::class,"mix"]);
 
 Route::get("statistics",[DataController::class,"statistics"]);
+Route::get("join",[DataController::class,"join"]);
+
+
 
 
 
