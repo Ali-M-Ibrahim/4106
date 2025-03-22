@@ -5,6 +5,7 @@ use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
+use App\Http\Controllers\DataController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -97,6 +98,50 @@ Route::get('invoke',InvokableController::class);
 Route::resource('resource',ResourceController::class)->only(['index','create']);
 Route::resource('resource2',ResourceController::class)->except(['index']);
 Route::post('first-post',[FirstController::class,'post']);
+
+
+Route::get("create",[DataController::class,"create"]);
+Route::get("getCustomerById/{id}",[DataController::class,"getCustomerById"]);
+Route::get("getCredentialById/{id}",[DataController::class,"getCredentialById"]);
+Route::get("create2",[DataController::class,"create2"]);
+Route::get("getAccountById/{id}",[DataController::class,"getAccountById"]);
+Route::get("create3",[DataController::class,"create3"]);
+
+Route::get("getServiceById/{id}",[DataController::class,"getServiceById"]);
+
+Route::get("getAllCustomers",[DataController::class,"getAllCustomers"]);
+Route::get("getCustomerByIdOrFail/{id}",[DataController::class,"getCustomerByIdOrFail"]);
+Route::get("getCustomerByIdOr/{id}",[DataController::class,"getCustomerByIdOr"]);
+Route::get("getAllCustomersByAddress/{address}",[DataController::class,"getAllCustomersByAddress"]);
+
+Route::get("getOneCustomerByAddress/{address}",[DataController::class,"getOneCustomerByAddress"]);
+
+Route::get("getCustomersInBeirutAndDob",[DataController::class,"getCustomersInBeirutAndDob"]);
+Route::get("getCustomersInBeirutOrDob",[DataController::class,"getCustomersInBeirutOrDob"]);
+
+Route::get("getCustomerByAccount",[DataController::class,"getCustomerByAccount"]);
+
+Route::get("getCustomerByAccount2",[DataController::class,"getCustomerByAccount2"]);
+Route::get("getCustomerLike",[DataController::class,"getCustomerLike"]);
+
+Route::get("getCustomerIn",[DataController::class,"getCustomerIn"]);
+
+Route::get("getCustomerBetween",[DataController::class,"getCustomerBetween"]);
+
+Route::get("getCustomerLimit",[DataController::class,"getCustomerLimit"]);
+Route::get("getNameDobCustomers",[DataController::class,"getNameDobCustomers"]);
+Route::get("getCustomersOrdered",[DataController::class,"getCustomersOrdered"]);
+
+Route::get("mix",[DataController::class,"mix"]);
+
+Route::get("statistics",[DataController::class,"statistics"]);
+
+
+
+
+
+
+
 
 
 
