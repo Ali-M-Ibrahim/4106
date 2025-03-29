@@ -6,6 +6,11 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\CrudController;
+use App\Http\Controllers\FrontController;
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -137,6 +142,29 @@ Route::get("mix",[DataController::class,"mix"]);
 Route::get("statistics",[DataController::class,"statistics"]);
 Route::get("join",[DataController::class,"join"]);
 
+
+Route::get('createm1',[CrudController::class,"createm1"]);
+Route::get('createm2',[CrudController::class,"createm2"]);
+Route::post('createm3',[CrudController::class,"createm3"]);
+Route::post('createm4',[CrudController::class,"createm4"]);
+Route::get('createm5',[CrudController::class,"createm5"]);
+
+Route::get('updatem1/{id}',[CrudController::class,"updatem1"]);
+Route::put('updatem2/{id}',[CrudController::class,"updatem2"]);
+Route::put('updatem3/{id}',[CrudController::class,"updatem3"]);
+Route::get('massUpdate',[CrudController::class,"massUpdate"]);
+
+Route::get('delete/{id}',[CrudController::class,"delete"]);
+Route::get('massDelete',[CrudController::class,"massDelete"]);
+
+
+
+Route::get('first-view',[FrontController::class,"index"]);
+
+Route::get('second-view',[FrontController::class,"index2"]);
+
+Route::get('ViewCustomer/{id}',[FrontController::class,"ViewCustomer"]);
+Route::get('listCustomer',[FrontController::class,"listCustomer"]);
 
 
 
