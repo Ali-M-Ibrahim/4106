@@ -8,6 +8,7 @@ use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ItemController;
 
 
 
@@ -167,8 +168,16 @@ Route::get('ViewCustomer/{id}',[FrontController::class,"ViewCustomer"]);
 Route::get('listCustomer',[FrontController::class,"listCustomer"]);
 
 
+Route::get("list-item",[ItemController::class,"list"])
+->name("listItems");
+Route::get("addItem",[ItemController::class,"add"])
+    ->name("add-item");
 
+Route::post("saveItem",[ItemController::class,"store"])
+    ->name("save-item");
 
+Route::get("showItem/{id}",[ItemController::class,"show"])
+    ->name("show-item");
 
 
 
