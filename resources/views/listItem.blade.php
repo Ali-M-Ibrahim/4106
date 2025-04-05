@@ -20,6 +20,16 @@
                     <td>{{$obj->price}}</td>
                     <td>
 <a href="{{route("show-item",["id"=>$obj->id])}}">Show</a>
+<a href="{{route("delete-item",["id"=>$obj->id])}}">Delete</a>
+
+<form action="{{route("deleteitem",["id"=>$obj->id])}}" method="post">
+@method("delete")
+    @csrf
+    <input type="submit" class="btn btn-danger" value="delete" />
+</form>
+
+   <a href="{{route("edit-item",["id"=>$obj->id])}}">Edit</a>
+
                     </td>
                 </tr>
             @endforeach

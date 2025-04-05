@@ -9,6 +9,8 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\CrudController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ResourceItemController;
+
 
 
 
@@ -172,22 +174,19 @@ Route::get("list-item",[ItemController::class,"list"])
 ->name("listItems");
 Route::get("addItem",[ItemController::class,"add"])
     ->name("add-item");
-
 Route::post("saveItem",[ItemController::class,"store"])
     ->name("save-item");
-
 Route::get("showItem/{id}",[ItemController::class,"show"])
     ->name("show-item");
+Route::get("deleteItem/{id}",[ItemController::class,"delete"])
+    ->name("delete-item");
+Route::delete("deleteItem2/{id}",[ItemController::class,"delete"])
+    ->name("deleteitem");
+Route::get("editItem/{id}",[ItemController::class,"edit"])
+    ->name("edit-item");
+Route::put("updateItem/{id}",[ItemController::class,"update"])
+    ->name("update-item");
 
 
 
-
-
-
-
-
-
-
-
-
-
+Route::resource("customItem",ResourceItemController::class);
