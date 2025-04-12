@@ -10,6 +10,11 @@ use App\Http\Controllers\CrudController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ResourceItemController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\WebsiteController;
+
+
+
 
 
 
@@ -190,3 +195,11 @@ Route::put("updateItem/{id}",[ItemController::class,"update"])
 
 
 Route::resource("customItem",ResourceItemController::class);
+
+
+Route::get("addImage",[ImageController::class,"add"]);
+Route::get("displayImage/{id}",[ImageController::class,"displayImage"])->name("displayImage");
+Route::post("saveImage",[ImageController::class,"save"])->name("saveImage");
+
+Route::get("about",[WebsiteController::class,"about"]);
+Route::get("contact",[WebsiteController::class,"contact"]);
