@@ -23,6 +23,12 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="{{route("listItems")}}">Home</a></li>
             <li><a href="{{route("add-item")}}">add Item</a></li>
+            @if(Auth::check())
+                <li><a href="about.asp">Edit Information</a></li>
+                <li><a href="{{route("logout")}}">Logout</a></li>
+            @else
+                <li><a href="{{route("login")}}">Login</a></li>
+            @endif
         </ul>
     </div>
 </nav>

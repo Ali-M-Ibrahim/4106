@@ -18,6 +18,15 @@ return Application::configure(basePath: dirname(__DIR__))
             "updatem2/*",
             "updatem3/*"
         ]);
+
+        //global middleware:  this will be applied on all http request
+//        $middleware->append(\App\Http\Middleware\CheckAuth::class);
+
+        $middleware->alias([
+            'check' => \App\Http\Middleware\CheckAuth::class,
+            'admin' => \App\Http\Middleware\CheckAdmin::class
+
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

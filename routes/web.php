@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
@@ -197,9 +198,26 @@ Route::put("updateItem/{id}",[ItemController::class,"update"])
 Route::resource("customItem",ResourceItemController::class);
 
 
-Route::get("addImage",[ImageController::class,"add"]);
+Route::get("addImage",[ImageController::class,"add"])->middleware("check");
 Route::get("displayImage/{id}",[ImageController::class,"displayImage"])->name("displayImage");
 Route::post("saveImage",[ImageController::class,"save"])->name("saveImage");
 
 Route::get("about",[WebsiteController::class,"about"]);
 Route::get("contact",[WebsiteController::class,"contact"]);
+
+
+Route::get("register",[AuthController::class, "register"]);
+Route::get("login",[AuthController::class, "login"])->name("login");
+Route::post("authenticate",[AuthController::class, "authenticate"])->name("authenticate");
+Route::get("showUser",[AuthController::class, "showUser"]);
+Route::get("logout",[AuthController::class, "logout"])->name("logout");
+
+
+Route::middleware(['check'])->group(function () {
+    Route::get('/check1', function () {
+        return "check 1";
+    });
+    Route::get('check2', function () {
+        return "check 2";
+    });
+});
