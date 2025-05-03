@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DIController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ResourceController;
@@ -221,3 +222,13 @@ Route::middleware(['check'])->group(function () {
         return "check 2";
     });
 });
+
+
+Route::get("before-di",[DIController::class,"beforedi"]);
+
+Route::get("after-di",[DIController::class,"afterdi"]);
+
+Route::get("after-di1",[DIController::class,"di1"]);
+
+Route::get("after-di2",[DIController::class,"di2"]);
+
